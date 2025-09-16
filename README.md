@@ -1,3 +1,6 @@
+My attempt at a respin to have 12 bit resolution over 2 channels with low latency for ground racing use. 
+
+
 ![Banner](https://github.com/ExpressLRS/ExpressLRS-Hardware/blob/master/img/banner.png?raw=true)
 
 <center>
