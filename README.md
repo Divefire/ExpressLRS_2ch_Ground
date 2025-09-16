@@ -2,10 +2,8 @@ My attempt at a respin to have 12 bit resolution over 2 channels with low latenc
 
 Notes to myself: 
 
-ELRS and CRSF being focused for drone and flight use have a lot of paramters and features that won't be used in a ground 2 channel racing envviroment. So rather than break with what's there, I'll see if it's possible to add a specific 2ch mode into elrs that uses a simpler crsf packet. Idealy I'd use https://github.com/tbs-fpv/tbs-crsf-spec/blob/main/crsf.md 0x17 to define 12bit channels, but revisions are in progress. Though given the simplicity of what I'm doing a rewrite when needed wouldn't be too bad. 
+ELRS and CRSF being focused for drone and flight use have a lot of paramters and features that won't be used in a ground 2 channel racing envviroment. I've looked at not breaking what's there, but until CRSF add a proper revision of 0x17 https://github.com/tbs-fpv/tbs-crsf-spec/blob/main/crsf.md adding in a less channels for more bit rate won't be possible without breaking everything. 
 
-So, I'll try and use 0x17 to set the 2 channels. 
+So this will have to be disasembling ELRS to bare bones, fixing it for 2 channels on PPM, reading 12bits (0-4095), sending it over a protocal (maybe I can adapt what's here, otherwise it will be based on the same hardware, but a simpler protocal) then outputting over PWM on the reciever side at 12bits again. 
 
-The next stage is reading the PPM at 12bits (0-4096) and then on the recivever side PWM values at 12bit. 
-
-With those three things done I should be left with a 12bit, low latency, 2 channel ground mode. 
+It might well be simpler to start from scratch to do this, however. 
